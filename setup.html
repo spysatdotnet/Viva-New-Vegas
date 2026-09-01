@@ -189,33 +189,42 @@
                 <h2 onclick="location.href='#Preparation'">Preparation</h2>
 
                 <div class="card" id="CPPRedists" title="Installing Redistributables">
-                    <h3>Installing VC++ Redistributables</h3>
-                    <p>Most engine mods and tools require latest Visual C++ Redistributables to be installed. Windows' official package manager, <strong>Winget</strong>, provides a quick and safe way to update all of them. We use the Microsoft Store to update it to the latest version and to make sure that the script works.</p>
+                    <h3>Installing Visual C++ Redistributables</h3>
+                    <p>Most engine mods and tools require the latest Visual C++ Redistributables to be installed. Windows' official package manager, <strong>winget</strong>, provides a quick and safe way to update all of them.</p>
 
                     <div class="card-red">
                         <p>
-                            Failure to have latest versions installed will result in an immediate crash when launching the game or modding tools.
+                            Failure to have the latest versions installed will result in an immediate crash when launching the game or it's modding tools.
                             <br>
                             <br>
-                            Please install the redistributables even if you have them installed already, as they are often outdated.
+                            Please install these redistributables even if you have them installed already, as they are often outdated.
                         </p>
                     </div>
 
                     <ol>
-                        <li>Open the <a href="ms-windows-store://home" target="_blank">Microsoft Store</a>.</li>
-                        <li>Head to the <b>Updates & downloads</b> section.</li>
-                        <li><b>Check for updates</b>, then let everything update.</li>
-                        <li>Once finished, open the Command Prompt as administrator and enter the following:</li>
+                        <li>Open PowerShell and enter the following:</li>
                         <textarea readonly="readonly" style="height: 14em; width: 95%;" onclick="this.focus();this.select()">
-winget install --id=Microsoft.VCRedist.2005.x86 -e --force -h --accept-package-agreements  && winget install --id=Microsoft.VCRedist.2005.x64 -e --force -h --accept-package-agreements  && winget install --id=Microsoft.VCRedist.2008.x86 -e --force -h --accept-package-agreements  && winget install --id=Microsoft.VCRedist.2008.x64 -e --force -h --accept-package-agreements  && winget install --id=Microsoft.VCRedist.2010.x86 -e --force -h --accept-package-agreements  && winget install --id=Microsoft.VCRedist.2010.x64 -e --force -h --accept-package-agreements  && winget install --id=Microsoft.VCRedist.2012.x86 -e --force -h --accept-package-agreements  && winget install --id=Microsoft.VCRedist.2012.x64 -e --force -h --accept-package-agreements  && winget install --id=Microsoft.VCRedist.2013.x86 -e --force -h --accept-package-agreements  && winget install --id=Microsoft.VCRedist.2013.x64 -e --force -h --accept-package-agreements  && winget install --id=Microsoft.VCRedist.2015+.x86 -e --force -h --accept-package-agreements  && winget install --id=Microsoft.VCRedist.2015+.x64 -e --force -h --accept-package-agreements</textarea>
-                        <li>Restart your PC.</li>
+winget upgrade Microsoft.AppInstaller -e --force -h --accept-package-agreements; `
+winget install --id=Microsoft.VCRedist.2005.x86 -e --force -h --accept-package-agreements; `
+winget install --id=Microsoft.VCRedist.2005.x64 -e --force -h --accept-package-agreements; `
+winget install --id=Microsoft.VCRedist.2008.x86 -e --force -h --accept-package-agreements; `
+winget install --id=Microsoft.VCRedist.2008.x64 -e --force -h --accept-package-agreements; `
+winget install --id=Microsoft.VCRedist.2010.x86 -e --force -h --accept-package-agreements; `
+winget install --id=Microsoft.VCRedist.2010.x64 -e --force -h --accept-package-agreements; `
+winget install --id=Microsoft.VCRedist.2012.x86 -e --force -h --accept-package-agreements; `
+winget install --id=Microsoft.VCRedist.2012.x64 -e --force -h --accept-package-agreements; `
+winget install --id=Microsoft.VCRedist.2013.x86 -e --force -h --accept-package-agreements; `
+winget install --id=Microsoft.VCRedist.2013.x64 -e --force -h --accept-package-agreements; `
+winget install --id=Microsoft.VCRedist.2015+.x86 -e --force -h --accept-package-agreements; `
+winget install --id=Microsoft.VCRedist.2015+.x64 -e --force -h --accept-package-agreements</textarea>
                     </ol>
+                    <p> This script updates <strong>winget</strong> to the newest stable version and then installs the latest Visual C++ Redistributable packages.</p>
                 </div>
 
                 <div class="card" id="FileExtensions" title="Enabling File Extensions">
                     <h3>Enabling File Extensions</h3>
                     <p>
-                        Before we start, it is important to enable file extensions in Windows.
+                        Before continuing, it is important to enable file extensions in Windows.
                     </p>
                     <p>
                         By default, File Explorer will not show file extensions (such as .exe, .dll, or .esp). These extensions are very important when going through the guide, so it is highly recommended to enable visible file extensions:
